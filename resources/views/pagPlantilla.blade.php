@@ -8,7 +8,7 @@
   </head>
   <body>
       <div class="conteiner my-4">
-            <a class="btn btn-primary" href="{{ route('xInicio') }}">Inicio</a>
+            <a class="btn btn-primary" href="{{ route('xIndex') }}">Inicio</a>
             <a class="btn btn-primary" href="{{ route('xGaleria' )}}">Galeria</a>
             <a class="btn btn-primary" href="{{ route('xLista') }}">Lista</a>
             
