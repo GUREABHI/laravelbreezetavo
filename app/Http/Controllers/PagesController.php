@@ -16,6 +16,36 @@ class PagesController extends Controller
         return view('Estudiante.pagDetalle', compact('xDetAlumnos'));
     }
 
+    public function fnRegistrar (Request $request){
+
+        //return $request;          //Verificando "token y datos recibidos
+
+        $request -> validate([
+            'codEst'=>'required',
+            'nomEst'=>'required',
+            'apeEst'=>'required',
+            'fnaEst'=>'required',
+            'turMat'=>'required',
+            'semMat'=>'required',
+            'estMat'=>'required'
+        ]);
+
+        $nuevoEstudiante = new Estudiante;
+        
+        $nuevoEstudiante->codEst = $request->codEst;
+        $nuevoEstudiante->nomEst = $request->nomEst;
+        $nuevoEstudiante->apeEst = $request->apeEst;
+        $nuevoEstudiante->fnaEst = $request->fnaEst;
+        $nuevoEstudiante->turMat = $request->turMat;
+        $nuevoEstudiante->semMat = $request->semMat;
+        $nuevoEstudiante->estMat = $request->estMat;
+
+        $nuevoEstudiante->save();    //guardar en BD
+
+
+        return back()->with('msj', 'Se registro con éxito...');
+    }
+
     public function fnLista (){
         $xAlumnos = Estudiante::all(); //Datos de BD
         return view('pagLista', compact('xAlumnos'));
