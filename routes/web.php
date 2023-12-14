@@ -19,12 +19,16 @@ use App\Http\Controllers\PagesController;
 Route::get('/',[PagesController::class, 'fnIndex']) -> name('xIndex');
 
 Route::post('/', [PagesController::class, 'fnRegistrar']) ->name('Estudiante.xRegistrar');
+//Route::post('/', [PagesController::class, 'fnRegistrarSeg']) ->name('Estudiante.xRegistrarSeg');
 
-Route::get('/detalle/{id}', [PagesController::class, 'fnEstDetalle'])->name('Estudiante.xDetalle');
-
-Route::get('/galeria/{numero?}',[PagesController::class, 'fnGaleria']) -> where('numero', '[0-9]+') -> name('xGaleria');
 
 Route::get('/lista',[PagesController::class, 'fnlista']) -> name('xLista');
+Route::get('/detalle/{id}', [PagesController::class, 'fnEstDetalle'])->name('Estudiante.xDetalle');
+
+Route::get('/seguimiento',[PagesController::class, 'fnSeguimiento']) -> name('xSeguimiento');
+Route::get('/detalle1/{id}', [PagesController::class, 'fnEstDetalle'])->name('Estudiante.xDetalleSeguimiento');
+
+Route::get('/galeria/{numero?}',[PagesController::class, 'fnGaleria']) -> where('numero', '[0-9]+') -> name('xGaleria');
 
 
 

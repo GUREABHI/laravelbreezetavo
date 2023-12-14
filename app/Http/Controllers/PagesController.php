@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Estudiante;
+use App\Models\Seguimiento;
 
 class PagesController extends Controller
 {
@@ -51,6 +52,11 @@ class PagesController extends Controller
         return view('pagLista', compact('xAlumnos'));
     }
     
+    public function fnSeguimiento (){
+        $xSeguimiento = Seguimiento::all(); //Datos de BD
+        return view('pagListaSeg', compact('xSeguimiento'));
+    }
+
     public function fnGaleria ($numero=0){
         $valor = $numero;
         $otro = 25;
