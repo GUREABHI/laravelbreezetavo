@@ -16,17 +16,35 @@ use App\Http\Controllers\PagesController;
 |
 */
 
+//Portada
 Route::get('/',[PagesController::class, 'fnIndex']) -> name('xIndex');
 
+
+//Create
 Route::post('/', [PagesController::class, 'fnRegistrar']) ->name('Estudiante.xRegistrar');
-//Route::post('/', [PagesController::class, 'fnRegistrarSeg']) ->name('Estudiante.xRegistrarSeg');
+Route::post('/1', [PagesController::class, 'fnRegistrarSeg']) ->name('Seguimiento.xRegistrarSeg');
 
 
+//read
 Route::get('/lista',[PagesController::class, 'fnlista']) -> name('xLista');
 Route::get('/detalle/{id}', [PagesController::class, 'fnEstDetalle'])->name('Estudiante.xDetalle');
 
 Route::get('/seguimiento',[PagesController::class, 'fnSeguimiento']) -> name('xSeguimiento');
-Route::get('/detalle1/{id}', [PagesController::class, 'fnEstDetalle'])->name('Estudiante.xDetalleSeguimiento');
+Route::get('/detalleseg/{id}', [PagesController::class, 'fnEstSeguimiento'])->name('Seguimiento.xDetalleSeguimiento');
+
+//update
+Route::get('/actualizar/{id}',[PagesController::class, 'fnEstActualizar']) -> name('Estudiante.xActualizar');
+Route::put('/actualizar/{id}',[PagesController::class, 'fnUpdate']) -> name('Estudiante.xUpdate');
+
+Route::get('/actualizarseg/{id}',[PagesController::class, 'fnEstActualizarSeg']) -> name('Seguimiento.xActualizarSeg');
+Route::put('/actualizarseg/{id}',[PagesController::class, 'fnUpdateSeg']) -> name('Seguimiento.xUpdateSeg');
+
+//delete
+Route::delete('/eliminar/{id}',[PagesController::class, 'fnEliminar']) -> name('Estudiante.xEliminar');
+
+Route::delete('/eliminarseg/{id}',[PagesController::class, 'fnEliminarSeg']) -> name('Seguimiento.xEliminarSeg');
+
+
 
 Route::get('/galeria/{numero?}',[PagesController::class, 'fnGaleria']) -> where('numero', '[0-9]+') -> name('xGaleria');
 

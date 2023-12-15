@@ -12,6 +12,6 @@
       <p>Fecha de Nacimiento:       {{ $xDetAlumnos->fnaEst }}</p>
       <p>Turno:                     {{ $xDetAlumnos->turEst }}</p>
       <p>Semestre:                  {{ $xDetAlumnos->semEst }}</p>
-      <p>Estado de Matricula:       {{ $xDetAlumnos->estEst }}</p>
+      <p>Estado de Matricula:       {{ $xDetAlumnos->estEst }}</p>  
       
 @endsection

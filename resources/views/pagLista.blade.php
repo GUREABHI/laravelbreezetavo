@@ -67,26 +67,27 @@
             <input type="text" name="apeEst" placeholder="Apellidos" value="{{ old('apeEst') }}" class="form-control mb-2">
             <input type="date" name="fnaEst" placeholder="Fecha de Nacimiento" value="{{ old('fnaEst') }}" class="form-control mb-2">
             <select name="turMat" class="form-control mb-2">
-                  <option value="">Seleccione...</option>
+                  <option value="">Seleccione turno...</option>
                   <option value="1">Turno Dia</option>
                   <option value="2">Turno Tarde</option>
                   <option value="3">Turno Noche</option>
             </select>
             <select name="semMat" class="form-control mb-2">
-                  <option value="">Seleccione...</option>
+                  <option value="">Seleccione semestre...</option>
                   @for($i=0; $i < 7; $i++)
                         <option value="{{$i}}">Semestre {{$i}}</option>
                   @endfor
             </select>
             <select name="estMat" class="form-control mb-2">
-                  <option value="">Seleccione...</option>
+                  <option value="">Seleccione estado de matricula...</option>
                   <option value="1">Inactivo</option>
                   <option value="2">Activo</option>
             </select>
             <button class="btn btn-primary" type="submit">Agregar</button>
             </form>
-      <h3>Lista</h3>
-      <table class="table table-dark table-striped-columns">
+            <br/>
+            <div class="btn btn-dark fs-3 fw-bold d-grid">Lista de seguimiento</div>
+            <table class="table table-dark table-striped-columns">
             <thead class="table-primary">
                   <tr>
                         <th scope="col">Id</th>
@@ -96,18 +97,28 @@
                   </tr>
             </thead>
             <tbody>
-                  @Foreach($xAlumnos as $item)
+                  @foreach($xAlumnos as $item)
                   <tr>
                         <th scope="row">{{ $item->id }}</th>
                         <td>{{ $item->codEst }}</td>
                         <td>
-                              <a href="{{ route('Estudiante.xDetalle', $item->id) }}">      
+                              <a href="{{ route('Estudiante.xDetalle', $item->id) }}">       
                                     {{ $item->apeEst }}, {{ $item->nomEst }}
                               </a>
-                        <td>@mdo</td>
+                        <td>
+                              <form action="{{ route('Estudiante.xEliminar', $item->id) }}" method="post" class="d-inline">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btn-sm">X</button>
+                              </form>
+                              <a class="btn btn-warning btn-sm" href="{{ route('Estudiante.xActualizar', $item->id ) }}">
+                                    ...A
+                              </a>
+                        </td>
                   </tr>
                   @endforeach
             </tbody>
       </table>
+      
       
 @endsection

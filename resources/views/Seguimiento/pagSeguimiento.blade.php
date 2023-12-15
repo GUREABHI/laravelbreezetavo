@@ -5,13 +5,13 @@
 @endsection
 
 @section('seccion')
-      <h3>Detalle estudiante</h3>
-      <p>Id:                        {{ $xDetAlumnos->id }}</p>
-      <p>Código:                    {{ $xDetAlumnos->codEst }}</p>
-      <p>Apellidos y Nombres:       {{ $xDetAlumnos->apeEst }}, {{ $xDetAlumnos->nomEst }}</p>
-      <p>Fecha de Nacimiento:       {{ $xDetAlumnos->fnaEst }}</p>
-      <p>Turno:                     {{ $xDetAlumnos->turEst }}</p>
-      <p>Semestre:                  {{ $xDetAlumnos->semEst }}</p>
-      <p>Estado de Matricula:       {{ $xDetAlumnos->estEst }}</p>
+      <h3>Detalle Seguimiento</h3>
+      <p>Id:                              {{ $xEstSeguimiento->id }}</p>
+      <p>Id estudiante:                   {{ $xEstSeguimiento->idEst }}</p>
+      <p>Trabajo Actual:                  {{ $xEstSeguimiento->traAct }}</p>
+      <p>Oficio Actual:                   {{ $xEstSeguimiento->ofiAct }}</p>
+      <p>Satisfacción Estudiantil:        {{ $xEstSeguimiento->satEst }}</p>
+      <p>Fecha de Seguimiento:            {{ $xEstSeguimiento->fecSeg }}</p>
+      <p>Estado de Seguimiento:           {{ $xEstSeguimiento->estSeg }}</p>
       
 @endsection
